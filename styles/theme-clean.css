@@ -1,0 +1,413 @@
+/* ==========================================================================
+   jayegger.com — Clean Theme (Burnt Orange)
+   Default theme — professional retro with UT burnt orange palette.
+   ========================================================================== */
+
+/* --- Color Palette --- */
+:root {
+  --color-bg-dark: #1A0A00;
+  --color-bg-panel: #1C1008;
+  --color-bg-panel-alt: #2A1A0A;
+  --color-primary: #BF5700;
+  --color-primary-light: #E87511;
+  --color-secondary: #335C67;
+  --color-accent-yellow: #FFD700;
+  --color-accent-magenta: #CB4B16;
+  --color-accent-cyan: #6CCFF6;
+  --color-accent-lime: #A3B86C;
+  --color-text: #ffffff;
+  --color-text-dark: #000000;
+  --color-text-muted: #CCBBAA;
+  --color-border: #8B5E3C;
+  --color-link: #FFD700;
+  --color-link-hover: #E87511;
+  --color-nav-bg: #2C1503;
+  --color-nav-button: #5C3D1A;
+  --color-nav-active: #BF5700;
+}
+
+/* --- Base Colors --- */
+body {
+  color: var(--color-text);
+  background-color: var(--color-bg-dark);
+  background-image:
+    radial-gradient(1px 1px at 10% 20%, rgba(255, 215, 0, 0.4) 0%, transparent 100%),
+    radial-gradient(1px 1px at 30% 60%, rgba(232, 117, 17, 0.3) 0%, transparent 100%),
+    radial-gradient(1px 1px at 50% 10%, rgba(255, 215, 0, 0.5) 0%, transparent 100%),
+    radial-gradient(1px 1px at 70% 40%, rgba(255, 255, 255, 0.2) 0%, transparent 100%),
+    radial-gradient(1px 1px at 90% 80%, rgba(255, 215, 0, 0.4) 0%, transparent 100%),
+    radial-gradient(1px 1px at 15% 85%, rgba(232, 117, 17, 0.3) 0%, transparent 100%),
+    radial-gradient(1px 1px at 45% 45%, rgba(255, 255, 255, 0.2) 0%, transparent 100%),
+    radial-gradient(1px 1px at 80% 15%, rgba(255, 215, 0, 0.5) 0%, transparent 100%),
+    radial-gradient(1px 1px at 60% 75%, rgba(191, 87, 0, 0.3) 0%, transparent 100%),
+    radial-gradient(1px 1px at 25% 35%, rgba(255, 215, 0, 0.4) 0%, transparent 100%);
+  background-size: 200px 200px;
+}
+
+a { color: var(--color-link); }
+a:hover { color: var(--color-link-hover); }
+a:visited { color: #D4A76A; }
+
+/* --- Typography Colors --- */
+h1 {
+  color: var(--color-accent-yellow);
+  text-shadow: 2px 2px 0 var(--color-primary), 4px 4px 0 rgba(0, 0, 0, 0.5);
+}
+
+h2 {
+  color: var(--color-accent-cyan);
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.6);
+}
+
+h3 {
+  color: var(--color-primary-light);
+}
+
+/* ==========================================================================
+   HEADER
+   ========================================================================== */
+.site-header {
+  background: linear-gradient(180deg, #3A1D04 0%, #1A0A00 100%);
+  border-bottom: 4px ridge #A0784C;
+}
+
+.site-title {
+  color: var(--color-accent-yellow);
+  text-shadow:
+    3px 3px 0 var(--color-primary),
+    -1px -1px 0 var(--color-accent-magenta);
+}
+
+.site-title:hover,
+.site-title:visited {
+  color: var(--color-accent-yellow);
+}
+
+.site-tagline {
+  color: var(--color-accent-lime);
+}
+
+/* --- Marquee --- */
+.marquee-bar {
+  background: var(--color-primary);
+  color: var(--color-text);
+  border-top: 2px solid var(--color-primary-light);
+  border-bottom: 2px solid #8B3E00;
+}
+
+/* ==========================================================================
+   NAVIGATION
+   ========================================================================== */
+.site-nav {
+  background: var(--color-nav-bg);
+  border-bottom: 3px outset #8B5E3C;
+}
+
+.nav-list a {
+  background: var(--color-nav-button);
+  color: var(--color-text);
+  border: 3px outset #8B5E3C;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5);
+}
+
+.nav-list a:visited {
+  color: var(--color-text);
+}
+
+.nav-list a:hover {
+  background: #7A5225;
+  color: var(--color-accent-yellow);
+}
+
+.nav-list a.active {
+  background: var(--color-nav-active);
+  color: var(--color-text);
+  border-color: var(--color-primary-light);
+  text-shadow: none;
+}
+
+/* ==========================================================================
+   MAIN CONTENT
+   ========================================================================== */
+.panel {
+  background: var(--color-bg-panel);
+  border: 4px ridge #A0784C;
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.5);
+}
+
+.panel-alt {
+  background: var(--color-bg-panel-alt);
+}
+
+.panel-title {
+  border-bottom: 2px dashed var(--color-border);
+}
+
+.divider-stars {
+  color: var(--color-accent-yellow);
+}
+
+/* --- Welcome --- */
+.welcome-intro {
+  color: var(--color-text-muted);
+}
+
+/* --- Badge --- */
+.badge-new {
+  background: #CC2200;
+  color: var(--color-text);
+  animation: blink-badge 1.5s ease-in-out infinite;
+}
+
+/* --- What's New --- */
+.whats-new-list li {
+  border-bottom: 1px dotted var(--color-border);
+}
+
+.whats-new-list .date {
+  color: var(--color-accent-cyan);
+}
+
+/* --- Retro Buttons --- */
+.retro-button {
+  border: 4px outset;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.4);
+}
+
+.retro-button--linkedin {
+  background: #0066cc;
+  color: var(--color-text);
+  border-color: #3399ff;
+}
+
+.retro-button--github {
+  background: #333333;
+  color: var(--color-text);
+  border-color: #666666;
+}
+
+.retro-button--email {
+  background: var(--color-accent-magenta);
+  color: var(--color-text);
+  border-color: var(--color-primary-light);
+}
+
+.retro-button--primary {
+  background: var(--color-primary);
+  color: var(--color-text);
+  border-color: var(--color-primary-light);
+}
+
+/* ==========================================================================
+   ABOUT PAGE
+   ========================================================================== */
+.skills-table {
+  border: 3px ridge var(--color-border);
+}
+
+.skills-table th {
+  background: #5C3D1A;
+  color: var(--color-accent-yellow);
+  border-bottom: 2px solid var(--color-primary);
+}
+
+.skills-table td {
+  border-bottom: 1px solid #3D2A14;
+}
+
+.skills-table tr:nth-child(even) td {
+  background: rgba(191, 87, 0, 0.05);
+}
+
+.skills-table tr:hover td {
+  background: rgba(191, 87, 0, 0.12);
+}
+
+.skill-bar {
+  background: #2A1A0A;
+  border: 2px inset #6B4E32;
+}
+
+.skill-bar-fill {
+  background: linear-gradient(90deg, var(--color-primary), var(--color-accent-yellow));
+}
+
+.fun-facts {
+  background: #2A1508;
+  border: 3px double var(--color-primary-light);
+}
+
+.fun-facts h3 {
+  color: var(--color-primary-light);
+}
+
+/* ==========================================================================
+   PORTFOLIO PAGE
+   ========================================================================== */
+.project-card {
+  background: var(--color-bg-panel);
+  border: 3px ridge var(--color-border);
+  box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.5);
+}
+
+.project-card h3 {
+  color: var(--color-accent-yellow);
+  border-bottom: 1px dashed var(--color-border);
+}
+
+.tech-tag {
+  background: #3D2A14;
+  color: var(--color-accent-cyan);
+  border: 1px solid var(--color-border);
+}
+
+.project-link {
+  background: var(--color-secondary);
+  color: var(--color-text);
+  border: 2px outset #4A7A87;
+}
+
+.project-link:hover {
+  background: #2A4A52;
+}
+
+.project-link:visited {
+  color: var(--color-text);
+}
+
+/* ==========================================================================
+   BLOG PAGE
+   ========================================================================== */
+.under-construction {
+  background: repeating-linear-gradient(
+    45deg,
+    #BF5700,
+    #BF5700 10px,
+    #1A0A00 10px,
+    #1A0A00 20px
+  );
+  border: 3px ridge #8B5E3C;
+}
+
+.under-construction-inner {
+  background: var(--color-bg-dark);
+  border: 2px solid var(--color-accent-yellow);
+}
+
+.under-construction-inner p {
+  color: var(--color-accent-yellow);
+}
+
+.blog-post-preview {
+  border-bottom: 2px dashed var(--color-border);
+}
+
+.blog-post-preview h3 a {
+  color: var(--color-accent-yellow);
+}
+
+.blog-post-meta {
+  color: var(--color-accent-cyan);
+}
+
+.blog-post-excerpt {
+  color: var(--color-text-muted);
+}
+
+.read-more {
+  color: var(--color-primary-light);
+}
+
+/* ==========================================================================
+   CONTACT PAGE
+   ========================================================================== */
+.contact-card {
+  background: var(--color-bg-panel-alt);
+  border: 3px ridge var(--color-border);
+  box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.5);
+}
+
+.contact-card-subtext {
+  color: var(--color-text-muted);
+}
+
+.contact-card-heading--email {
+  color: var(--color-accent-yellow);
+}
+
+.contact-card-heading--linkedin {
+  color: var(--color-secondary);
+}
+
+.contact-card-heading--github {
+  color: var(--color-text);
+}
+
+.guestbook-header {
+  border: 3px double var(--color-primary-light);
+  background: rgba(191, 87, 0, 0.08);
+}
+
+.guestbook-subtitle {
+  color: var(--color-accent-cyan);
+}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+.site-footer {
+  background: linear-gradient(180deg, #1A0A00 0%, #0D0500 100%);
+  border-top: 4px ridge #A0784C;
+  color: var(--color-text-muted);
+}
+
+.footer-retro {
+  color: #7A6550;
+}
+
+.footer-social a {
+  color: var(--color-accent-cyan);
+}
+
+/* ==========================================================================
+   UTILITIES
+   ========================================================================== */
+.text-glow {
+  text-shadow: 0 0 8px var(--color-primary-light), 0 0 15px var(--color-primary);
+}
+
+.rainbow-text {
+  background: linear-gradient(
+    90deg,
+    #BF5700, #E87511, #FFD700, #A3B86C, #6CCFF6, #335C67, #CB4B16
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+hr.retro-hr {
+  background: linear-gradient(90deg,
+    transparent,
+    var(--color-primary),
+    var(--color-accent-yellow),
+    var(--color-primary-light),
+    var(--color-accent-yellow),
+    var(--color-primary),
+    transparent
+  );
+}
+
+/* ==========================================================================
+   THEME TOGGLE BUTTON — Clean Style
+   ========================================================================== */
+.theme-toggle {
+  background: var(--color-primary);
+  color: var(--color-text);
+  border: 3px outset var(--color-primary-light);
+}
+
+.theme-toggle:hover {
+  background: var(--color-primary-light);
+  border-style: inset;
+}

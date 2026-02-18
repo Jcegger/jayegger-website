@@ -1,0 +1,703 @@
+/* ==========================================================================
+   jayegger.com — CHAOS THEME (Full GeoCities Mode)
+   All rules scoped under html.chaos-mode so they only activate on toggle.
+   ========================================================================== */
+
+/* --- Chaos Color Palette --- */
+html.chaos-mode {
+  --color-bg-dark: #000000;
+  --color-bg-panel: #0a000a;
+  --color-bg-panel-alt: #000a0a;
+  --color-primary: #FF0000;
+  --color-primary-light: #FF6600;
+  --color-secondary: #0000FF;
+  --color-accent-yellow: #FFFF00;
+  --color-accent-magenta: #FF00FF;
+  --color-accent-cyan: #00FFFF;
+  --color-accent-lime: #00FF00;
+  --color-text: #ffffff;
+  --color-text-dark: #000000;
+  --color-text-muted: #cccccc;
+  --color-border: #FF00FF;
+  --color-link: #FFFF00;
+  --color-link-hover: #00FF00;
+  --color-nav-bg: #000066;
+  --color-nav-button: #660066;
+  --color-nav-active: #FF0000;
+}
+
+/* ==========================================================================
+   CHAOS ANIMATIONS
+   ========================================================================== */
+
+/* Twinkling stars */
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+/* Rainbow hue cycling for the site title */
+@keyframes hue-cycle {
+  0% { filter: hue-rotate(0deg); }
+  100% { filter: hue-rotate(360deg); }
+}
+
+/* Pulsing neon glow */
+@keyframes neon-pulse {
+  0%, 100% { text-shadow: 0 0 5px #FF00FF, 0 0 10px #FF00FF, 0 0 20px #FF00FF; }
+  50% { text-shadow: 0 0 10px #00FFFF, 0 0 20px #00FFFF, 0 0 40px #00FFFF; }
+}
+
+/* Color cycling for hit counter */
+@keyframes color-cycle {
+  0% { color: #FF0000; }
+  16% { color: #FFFF00; }
+  33% { color: #00FF00; }
+  50% { color: #00FFFF; }
+  66% { color: #0000FF; }
+  83% { color: #FF00FF; }
+  100% { color: #FF0000; }
+}
+
+/* Rainbow background shift for HR */
+@keyframes rainbow-shift {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+/* Bouncing arrow for email links */
+@keyframes bounce-arrow {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(6px); }
+}
+
+/* Spinning for award badges */
+@keyframes gentle-spin {
+  0% { transform: rotate(-2deg); }
+  50% { transform: rotate(2deg); }
+  100% { transform: rotate(-2deg); }
+}
+
+/* ==========================================================================
+   CHAOS: BASE
+   ========================================================================== */
+html.chaos-mode body {
+  cursor: crosshair;
+  font-family: "Comic Sans MS", "Chalkboard SE", "Comic Neue", cursive;
+  background-color: #000000;
+  background-image:
+    radial-gradient(1px 1px at 10% 20%, rgba(255, 255, 255, 0.8) 0%, transparent 100%),
+    radial-gradient(1px 1px at 30% 60%, rgba(255, 0, 255, 0.6) 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 50% 10%, rgba(0, 255, 255, 0.9) 0%, transparent 100%),
+    radial-gradient(1px 1px at 70% 40%, rgba(255, 255, 0, 0.5) 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 90% 80%, rgba(0, 255, 0, 0.7) 0%, transparent 100%),
+    radial-gradient(1px 1px at 15% 85%, rgba(255, 0, 0, 0.6) 0%, transparent 100%),
+    radial-gradient(1px 1px at 45% 45%, rgba(255, 255, 255, 0.5) 0%, transparent 100%),
+    radial-gradient(2px 2px at 80% 15%, rgba(255, 0, 255, 1) 0%, transparent 100%),
+    radial-gradient(1px 1px at 60% 75%, rgba(0, 255, 255, 0.6) 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 25% 35%, rgba(255, 255, 0, 0.8) 0%, transparent 100%),
+    radial-gradient(1px 1px at 5% 50%, rgba(255, 255, 255, 0.4) 0%, transparent 100%),
+    radial-gradient(1px 1px at 95% 30%, rgba(0, 255, 0, 0.5) 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 40% 90%, rgba(255, 0, 0, 0.7) 0%, transparent 100%),
+    radial-gradient(1px 1px at 75% 65%, rgba(255, 255, 255, 0.6) 0%, transparent 100%);
+  background-size: 200px 200px;
+}
+
+html.chaos-mode a { color: #FFFF00; }
+html.chaos-mode a:hover { color: #00FF00; }
+html.chaos-mode a:visited { color: #FF99FF; }
+
+/* ==========================================================================
+   CHAOS: TYPOGRAPHY
+   ========================================================================== */
+html.chaos-mode h1 {
+  color: #FFFF00;
+  text-shadow:
+    2px 2px 0 #FF0000,
+    4px 4px 0 #FF00FF,
+    0 0 10px #FFFF00,
+    0 0 20px #FF6600;
+  animation: neon-pulse 2s ease-in-out infinite;
+}
+
+html.chaos-mode h2 {
+  color: #00FFFF;
+  text-shadow:
+    1px 1px 0 #0000FF,
+    0 0 8px #00FFFF,
+    0 0 15px #00FFFF;
+}
+
+html.chaos-mode h3 {
+  color: #FF00FF;
+  text-shadow: 0 0 5px #FF00FF;
+}
+
+/* ==========================================================================
+   CHAOS: HEADER
+   ========================================================================== */
+html.chaos-mode .site-header {
+  background: linear-gradient(180deg, #000066 0%, #330033 50%, #000000 100%);
+  border-bottom: 6px double #FF00FF;
+}
+
+html.chaos-mode .site-title {
+  color: #FFFF00;
+  text-shadow:
+    3px 3px 0 #FF0000,
+    -2px -2px 0 #00FFFF,
+    0 0 15px #FFFF00,
+    0 0 30px #FF6600;
+  animation: hue-cycle 5s linear infinite;
+}
+
+html.chaos-mode .site-title:hover,
+html.chaos-mode .site-title:visited {
+  color: #FFFF00;
+}
+
+html.chaos-mode .site-tagline {
+  color: #00FF00;
+  text-shadow: 0 0 5px #00FF00;
+}
+
+/* --- Chaos Marquee --- */
+html.chaos-mode .marquee-bar {
+  background: linear-gradient(90deg, #FF0000, #FF6600, #FFFF00, #00FF00, #00FFFF, #0000FF, #FF00FF);
+  color: #000000;
+  border-top: 3px solid #FFFF00;
+  border-bottom: 3px solid #FFFF00;
+  font-size: 1.05rem;
+}
+
+/* ==========================================================================
+   CHAOS: NAVIGATION
+   ========================================================================== */
+html.chaos-mode .site-nav {
+  background: #000066;
+  border-bottom: 5px ridge #FF00FF;
+}
+
+html.chaos-mode .nav-list a {
+  background: #660066;
+  color: #FFFF00;
+  border: 4px outset #FF00FF;
+  text-shadow: 1px 1px 0 #000000, 0 0 5px #FF00FF;
+}
+
+html.chaos-mode .nav-list a:visited {
+  color: #FFFF00;
+}
+
+html.chaos-mode .nav-list a:hover {
+  background: #9900CC;
+  color: #00FF00;
+  border-style: inset;
+}
+
+html.chaos-mode .nav-list a.active {
+  background: #FF0000;
+  color: #FFFF00;
+  border-color: #FFFF00;
+  text-shadow: 0 0 5px #FFFF00;
+}
+
+/* ==========================================================================
+   CHAOS: PANELS
+   ========================================================================== */
+html.chaos-mode .panel {
+  background:
+    repeating-conic-gradient(rgba(255, 0, 255, 0.03) 0% 25%, transparent 0% 50%)
+    50% / 20px 20px,
+    #0a000a;
+  border: 5px ridge #FF00FF;
+  box-shadow:
+    5px 5px 0 #FF00FF,
+    -2px -2px 0 #00FFFF;
+}
+
+html.chaos-mode .panel-alt {
+  background:
+    repeating-conic-gradient(rgba(0, 255, 255, 0.03) 0% 25%, transparent 0% 50%)
+    50% / 20px 20px,
+    #000a0a;
+}
+
+html.chaos-mode .panel-title {
+  border-bottom: 2px dashed #00FFFF;
+}
+
+html.chaos-mode .divider-stars {
+  color: #FF00FF;
+  text-shadow: 0 0 10px #FF00FF;
+}
+
+/* ==========================================================================
+   CHAOS: WELCOME
+   ========================================================================== */
+html.chaos-mode .welcome-intro {
+  color: #cccccc;
+}
+
+/* ==========================================================================
+   CHAOS: BADGES & LISTS
+   ========================================================================== */
+html.chaos-mode .badge-new {
+  background: #FF0000;
+  color: #FFFF00;
+  animation: blink-badge 1.2s ease-in-out infinite;
+  border: 1px solid #FFFF00;
+  font-size: 0.8rem;
+}
+
+html.chaos-mode .whats-new-list li {
+  border-bottom: 1px dotted #FF00FF;
+}
+
+html.chaos-mode .whats-new-list .date {
+  color: #00FF00;
+}
+
+/* ==========================================================================
+   CHAOS: RETRO BUTTONS
+   ========================================================================== */
+html.chaos-mode .retro-button {
+  border: 5px outset;
+  text-shadow: 1px 1px 0 #000000;
+}
+
+html.chaos-mode .retro-button--linkedin {
+  background: #0000FF;
+  color: #FFFF00;
+  border-color: #00FFFF;
+}
+
+html.chaos-mode .retro-button--github {
+  background: #333333;
+  color: #00FF00;
+  border-color: #00FF00;
+}
+
+html.chaos-mode .retro-button--email {
+  background: #CC0000;
+  color: #FFFF00;
+  border-color: #FF6600;
+}
+
+html.chaos-mode .retro-button--primary {
+  background: #FF0000;
+  color: #FFFF00;
+  border-color: #FFFF00;
+}
+
+/* ==========================================================================
+   CHAOS: ABOUT PAGE
+   ========================================================================== */
+html.chaos-mode .skills-table {
+  border: 4px double #00FFFF;
+}
+
+html.chaos-mode .skills-table th {
+  background: #000099;
+  color: #FFFF00;
+  border-bottom: 3px solid #FF0000;
+}
+
+html.chaos-mode .skills-table td {
+  border-bottom: 1px solid #330066;
+}
+
+html.chaos-mode .skills-table tr:nth-child(even) td {
+  background: rgba(255, 0, 255, 0.05);
+}
+
+html.chaos-mode .skills-table tr:hover td {
+  background: rgba(0, 255, 255, 0.1);
+}
+
+html.chaos-mode .skill-bar {
+  background: #1a001a;
+  border: 2px inset #FF00FF;
+}
+
+html.chaos-mode .skill-bar-fill {
+  background: linear-gradient(90deg, #00FF00, #00FFFF, #FF00FF);
+}
+
+html.chaos-mode .fun-facts {
+  background: #0a000a;
+  border: 4px double #00FF00;
+}
+
+html.chaos-mode .fun-facts h3 {
+  color: #00FF00;
+  text-shadow: 0 0 5px #00FF00;
+}
+
+/* ==========================================================================
+   CHAOS: PORTFOLIO
+   ========================================================================== */
+html.chaos-mode .project-card {
+  background: #0a000a;
+  border: 4px ridge #00FFFF;
+  box-shadow: 4px 4px 0 #FF00FF, -2px -2px 0 #00FF00;
+}
+
+html.chaos-mode .project-card h3 {
+  color: #FFFF00;
+  border-bottom: 1px dashed #FF00FF;
+  text-shadow: 0 0 5px #FFFF00;
+}
+
+html.chaos-mode .tech-tag {
+  background: #330066;
+  color: #00FFFF;
+  border: 1px solid #FF00FF;
+}
+
+html.chaos-mode .project-link {
+  background: #0000FF;
+  color: #FFFF00;
+  border: 3px outset #00FFFF;
+}
+
+html.chaos-mode .project-link:hover {
+  background: #0000CC;
+  border-style: inset;
+}
+
+html.chaos-mode .project-link:visited {
+  color: #FFFF00;
+}
+
+/* ==========================================================================
+   CHAOS: BLOG
+   ========================================================================== */
+html.chaos-mode .under-construction {
+  background: repeating-linear-gradient(
+    45deg,
+    #FFFF00,
+    #FFFF00 10px,
+    #000000 10px,
+    #000000 20px
+  );
+  border: 4px ridge #FF0000;
+}
+
+html.chaos-mode .under-construction-inner {
+  background: #000000;
+  border: 3px solid #FF0000;
+  animation: blink-badge 2s ease-in-out infinite;
+}
+
+html.chaos-mode .under-construction-inner p {
+  color: #FFFF00;
+  text-shadow: 0 0 5px #FFFF00;
+}
+
+html.chaos-mode .blog-post-preview {
+  border-bottom: 2px dashed #FF00FF;
+}
+
+html.chaos-mode .blog-post-preview h3 a {
+  color: #FFFF00;
+  text-shadow: 0 0 3px #FFFF00;
+}
+
+html.chaos-mode .blog-post-meta {
+  color: #00FF00;
+}
+
+html.chaos-mode .blog-post-excerpt {
+  color: #cccccc;
+}
+
+html.chaos-mode .read-more {
+  color: #FF6600;
+  text-shadow: 0 0 3px #FF6600;
+}
+
+/* ==========================================================================
+   CHAOS: CONTACT
+   ========================================================================== */
+html.chaos-mode .contact-card {
+  background: #0a000a;
+  border: 4px ridge #00FF00;
+  box-shadow: 4px 4px 0 #FF00FF, -2px -2px 0 #00FFFF;
+}
+
+html.chaos-mode .guestbook-header {
+  border: 5px double #FF00FF;
+  background: rgba(255, 0, 255, 0.1);
+}
+
+html.chaos-mode .guestbook-subtitle {
+  color: #00FF00;
+  text-shadow: 0 0 5px #00FF00;
+}
+
+html.chaos-mode .contact-card-heading--email {
+  color: #FFFF00;
+  text-shadow: 0 0 5px #FFFF00;
+}
+
+html.chaos-mode .contact-card-heading--linkedin {
+  color: #00FFFF;
+  text-shadow: 0 0 5px #00FFFF;
+}
+
+html.chaos-mode .contact-card-heading--github {
+  color: #00FF00;
+  text-shadow: 0 0 5px #00FF00;
+}
+
+/* ==========================================================================
+   CHAOS: FOOTER
+   ========================================================================== */
+html.chaos-mode .site-footer {
+  background: linear-gradient(180deg, #000033 0%, #000000 100%);
+  border-top: 6px double #FF00FF;
+  color: #cccccc;
+}
+
+html.chaos-mode .footer-retro {
+  color: #666699;
+}
+
+html.chaos-mode .footer-social a {
+  color: #00FFFF;
+  text-shadow: 0 0 3px #00FFFF;
+}
+
+/* --- Chaos Hit Counter --- */
+html.chaos-mode .hit-counter {
+  background: #000000;
+  border: 3px inset #00FF00;
+  color: #00FF00;
+  animation: color-cycle 3s linear infinite;
+  text-shadow: 0 0 5px currentColor;
+}
+
+/* --- Chaos Footer Marquee --- */
+html.chaos-mode .footer-marquee {
+  background: linear-gradient(90deg, #FF00FF, #00FFFF, #FFFF00, #00FF00, #FF0000);
+  color: #000000;
+  font-weight: bold;
+  font-family: "Comic Sans MS", cursive;
+  padding: 3px 0;
+  margin-top: 8px;
+}
+
+/* --- Chaos Web Ring --- */
+html.chaos-mode .web-ring {
+  color: #00FFFF;
+  text-shadow: 0 0 3px #00FFFF;
+}
+
+html.chaos-mode .web-ring a {
+  color: #FFFF00;
+}
+
+html.chaos-mode .web-ring a:hover {
+  color: #FF00FF;
+}
+
+/* ==========================================================================
+   CHAOS: HR
+   ========================================================================== */
+html.chaos-mode hr.retro-hr {
+  height: 5px;
+  background: linear-gradient(90deg,
+    #FF0000, #FF6600, #FFFF00, #00FF00, #00FFFF, #0000FF, #FF00FF,
+    #FF0000, #FF6600, #FFFF00, #00FF00, #00FFFF, #0000FF, #FF00FF
+  );
+  background-size: 200% 100%;
+  animation: rainbow-shift 3s linear infinite;
+}
+
+/* ==========================================================================
+   CHAOS: UTILITIES
+   ========================================================================== */
+html.chaos-mode .text-glow {
+  text-shadow: 0 0 8px #FF00FF, 0 0 15px #00FFFF, 0 0 30px #FFFF00;
+}
+
+html.chaos-mode .rainbow-text {
+  background: linear-gradient(
+    90deg,
+    #FF0000, #FF6600, #FFFF00, #00FF00, #00FFFF, #0000FF, #FF00FF
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ==========================================================================
+   CHAOS: GIF IMAGES
+   ========================================================================== */
+html.chaos-mode .chaos-gif {
+  display: inline-block;
+}
+
+html.chaos-mode .chaos-gif--divider {
+  display: block;
+}
+
+html.chaos-mode .chaos-gif--center {
+  display: block;
+}
+
+html.chaos-mode .chaos-gif--header {
+  width: 50px;
+  height: auto;
+  margin: 0 8px;
+  filter: drop-shadow(0 0 6px #FF00FF);
+}
+
+html.chaos-mode .chaos-gif--inline {
+  width: 40px;
+  height: auto;
+  filter: drop-shadow(0 0 4px #00FFFF);
+}
+
+html.chaos-mode .chaos-gif--float-right,
+html.chaos-mode .chaos-gif--float-left {
+  filter: drop-shadow(0 0 8px #FFFF00);
+}
+
+html.chaos-mode .chaos-gif--construction {
+  width: 80px;
+  height: auto;
+  filter: drop-shadow(0 0 5px #FFFF00);
+}
+
+html.chaos-mode .chaos-gif--mailbox {
+  width: 70px;
+  height: auto;
+  filter: drop-shadow(0 0 5px #00FF00);
+}
+
+html.chaos-mode .chaos-gif--computer {
+  width: 90px;
+  height: auto;
+  filter: drop-shadow(0 0 6px #00FFFF);
+}
+
+html.chaos-mode .chaos-gif--trophy {
+  width: 60px;
+  height: auto;
+  filter: drop-shadow(0 0 5px #FFFF00);
+}
+
+html.chaos-mode .chaos-gif--new-badge {
+  width: 35px;
+  height: auto;
+  vertical-align: middle;
+  margin-left: 6px;
+}
+
+/* Chaos divider: replaces text stars */
+html.chaos-mode .divider-stars {
+  font-size: 0;
+  line-height: 0;
+  overflow: hidden;
+}
+
+html.chaos-mode .divider-stars .chaos-gif--divider {
+  font-size: 1rem;
+  width: 100%;
+  max-height: 20px;
+  object-fit: cover;
+}
+
+/* ==========================================================================
+   CHAOS: AWARDS SECTION
+   ========================================================================== */
+html.chaos-mode .award-badge {
+  background: #000066;
+  color: #FFFF00;
+  border: 4px ridge #00FFFF;
+  box-shadow: 3px 3px 0 #FF00FF;
+  animation: gentle-spin 2s ease-in-out infinite;
+  text-shadow: 0 0 3px #FFFF00;
+}
+
+html.chaos-mode .award-badge small {
+  color: #00FFFF;
+}
+
+/* ==========================================================================
+   CHAOS: EXTRA CHAOS ENHANCEMENTS
+   ========================================================================== */
+
+/* Rainbow cycling border on panels */
+@keyframes border-rainbow {
+  0% { border-color: #FF0000; }
+  14% { border-color: #FF6600; }
+  28% { border-color: #FFFF00; }
+  42% { border-color: #00FF00; }
+  57% { border-color: #00FFFF; }
+  71% { border-color: #0000FF; }
+  85% { border-color: #FF00FF; }
+  100% { border-color: #FF0000; }
+}
+
+html.chaos-mode .panel {
+  animation: border-rainbow 4s linear infinite;
+}
+
+/* Extra glow on nav buttons */
+html.chaos-mode .nav-list a {
+  box-shadow: 0 0 8px rgba(255, 0, 255, 0.4), inset 0 0 4px rgba(255, 0, 255, 0.2);
+}
+
+html.chaos-mode .nav-list a:hover {
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.6), inset 0 0 8px rgba(0, 255, 255, 0.3);
+}
+
+/* Pulsing glow on project cards */
+@keyframes card-glow {
+  0%, 100% { box-shadow: 4px 4px 0 #FF00FF, -2px -2px 0 #00FF00, 0 0 10px rgba(255, 0, 255, 0.3); }
+  50% { box-shadow: 4px 4px 0 #00FFFF, -2px -2px 0 #FFFF00, 0 0 20px rgba(0, 255, 255, 0.5); }
+}
+
+html.chaos-mode .project-card {
+  animation: card-glow 3s ease-in-out infinite;
+}
+
+/* Rotating hue on contact card icons */
+html.chaos-mode .contact-card-icon {
+  animation: hue-cycle 3s linear infinite;
+}
+
+/* Extra neon glow on footer social links */
+html.chaos-mode .footer-social a {
+  text-shadow: 0 0 5px #00FFFF, 0 0 10px #00FFFF, 0 0 20px #FF00FF;
+}
+
+/* Jittery marquee text shadow */
+html.chaos-mode .marquee-bar {
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5);
+  font-weight: bold;
+}
+
+/* Glow effect on skill bar fills */
+html.chaos-mode .skill-bar-fill {
+  box-shadow: 0 0 6px rgba(0, 255, 255, 0.5), 0 0 12px rgba(255, 0, 255, 0.3);
+}
+
+/* ==========================================================================
+   CHAOS: THEME TOGGLE BUTTON
+   ========================================================================== */
+html.chaos-mode .theme-toggle {
+  background: #FF00FF;
+  color: #000000;
+  border: 4px outset #FFFF00;
+  text-shadow: none;
+  animation: neon-pulse 2s ease-in-out infinite;
+}
+
+html.chaos-mode .theme-toggle:hover {
+  background: #CC00CC;
+  border-style: inset;
+}

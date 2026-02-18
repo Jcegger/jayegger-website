@@ -1,0 +1,790 @@
+/* ==========================================================================
+   jayegger.com — Base Stylesheet (Shared Layout)
+   No colors here — theme files handle all visual styling.
+   This file handles structure, layout, typography sizes, and responsive.
+   ========================================================================== */
+
+/* --- CSS Custom Properties (structural only — themes override colors) --- */
+:root {
+  --font-heading: "Comic Sans MS", "Chalkboard SE", "Comic Neue", cursive;
+  --font-body: "Verdana", "Trebuchet MS", "Geneva", sans-serif;
+  --font-mono: "Courier New", "Courier", monospace;
+  --max-width: 900px;
+}
+
+/* --- Reset & Base --- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* --- Links --- */
+a {
+  text-decoration: underline;
+  transition: color 0.15s;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+/* --- Typography --- */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  line-height: 1.3;
+  margin-bottom: 0.5em;
+}
+
+h1 { font-size: 2.2rem; }
+h2 { font-size: 1.6rem; }
+h3 { font-size: 1.3rem; }
+
+p {
+  margin-bottom: 1em;
+}
+
+/* --- Page Wrapper --- */
+.page-wrapper {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* ==========================================================================
+   HEADER
+   ========================================================================== */
+.site-header {
+  padding: 15px 0 10px;
+  text-align: center;
+}
+
+.site-header .page-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.site-title {
+  font-family: var(--font-heading);
+  font-size: 2.8rem;
+  text-decoration: none;
+  letter-spacing: 2px;
+}
+
+.site-title:hover {
+  text-decoration: none;
+}
+
+.site-tagline {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  margin-top: 2px;
+  letter-spacing: 1px;
+}
+
+/* --- Marquee --- */
+.marquee-bar {
+  font-family: var(--font-heading);
+  font-weight: bold;
+  font-size: 0.95rem;
+  padding: 4px 0;
+  overflow: hidden;
+}
+
+@keyframes scroll-left {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
+.marquee-fallback {
+  display: inline-block;
+  white-space: nowrap;
+  animation: scroll-left 20s linear infinite;
+}
+
+/* ==========================================================================
+   NAVIGATION
+   ========================================================================== */
+.site-nav {
+  padding: 8px 0;
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.nav-list li {
+  display: inline-block;
+}
+
+.nav-list a {
+  display: block;
+  padding: 8px 18px;
+  text-decoration: none;
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: bold;
+  transition: background 0.1s, border-style 0.1s;
+}
+
+/* ==========================================================================
+   MAIN CONTENT
+   ========================================================================== */
+.site-main {
+  padding: 25px 0;
+  min-height: 60vh;
+}
+
+/* --- Content Panels --- */
+.panel {
+  padding: 20px 25px;
+  margin-bottom: 25px;
+}
+
+.panel-title {
+  padding-bottom: 8px;
+  margin-bottom: 15px;
+}
+
+/* --- Star / Sparkle Divider --- */
+.divider-stars {
+  text-align: center;
+  font-size: 1.2rem;
+  padding: 10px 0;
+  letter-spacing: 8px;
+  user-select: none;
+}
+
+/* ==========================================================================
+   HOME PAGE
+   ========================================================================== */
+.welcome-section {
+  text-align: center;
+  padding: 30px 25px;
+}
+
+.welcome-section h1 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+
+.welcome-intro {
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto 20px;
+}
+
+/* What's New */
+.badge-new {
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-size: 0.7rem;
+  font-weight: bold;
+  padding: 2px 6px;
+  border-radius: 3px;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+
+@keyframes blink-badge {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.whats-new-list {
+  list-style: none;
+  padding: 0;
+}
+
+.whats-new-list li {
+  padding: 8px 0;
+  font-size: 0.95rem;
+}
+
+.whats-new-list li:last-child {
+  border-bottom: none;
+}
+
+.whats-new-list .date {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  margin-right: 8px;
+}
+
+/* Quick Links */
+.quick-links {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-top: 15px;
+}
+
+.retro-button {
+  display: inline-block;
+  padding: 12px 24px;
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  transition: border-style 0.1s;
+}
+
+.retro-button:hover {
+  border-style: inset;
+}
+
+.retro-button:visited {
+  color: inherit;
+}
+
+/* ==========================================================================
+   ABOUT PAGE
+   ========================================================================== */
+.skills-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 15px 0;
+  font-size: 0.9rem;
+}
+
+.skills-table th {
+  font-family: var(--font-heading);
+  padding: 10px 12px;
+  text-align: left;
+}
+
+.skills-table td {
+  padding: 8px 12px;
+}
+
+.skill-bar {
+  height: 18px;
+  width: 100%;
+  max-width: 200px;
+  position: relative;
+}
+
+.skill-bar-fill {
+  height: 100%;
+  transition: width 0.5s;
+}
+
+.fun-facts {
+  padding: 15px 20px;
+}
+
+.fun-facts h3 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.fun-facts ul {
+  list-style: ">> ";
+  padding-left: 25px;
+}
+
+.fun-facts li {
+  padding: 4px 0;
+  font-size: 0.9rem;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 20px;
+  align-items: start;
+}
+
+/* Sidebar connect panel */
+.sidebar-connect {
+  margin-top: 20px;
+}
+
+.sidebar-button {
+  width: 100%;
+  margin-bottom: 8px;
+}
+
+/* ==========================================================================
+   PORTFOLIO PAGE
+   ========================================================================== */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.project-card {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-card h3 {
+  font-family: var(--font-heading);
+  margin-bottom: 8px;
+  padding-bottom: 8px;
+}
+
+.project-card p {
+  font-size: 0.9rem;
+  flex-grow: 1;
+}
+
+.project-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin: 10px 0;
+}
+
+.tech-tag {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  padding: 3px 8px;
+}
+
+.project-link {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 6px 14px;
+  text-decoration: none;
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  align-self: flex-start;
+}
+
+/* ==========================================================================
+   BLOG PAGE
+   ========================================================================== */
+.under-construction {
+  text-align: center;
+  padding: 15px;
+  margin-bottom: 20px;
+}
+
+.under-construction-inner {
+  padding: 12px 20px;
+  display: inline-block;
+}
+
+.under-construction-inner p {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.under-construction-sub {
+  font-size: 0.85rem;
+  margin-top: 5px;
+}
+
+.blog-post-preview {
+  padding: 18px 0;
+}
+
+.blog-post-preview:last-child {
+  border-bottom: none;
+}
+
+.blog-post-preview h3 a {
+  font-size: 1.2rem;
+}
+
+.blog-post-meta {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  margin-bottom: 8px;
+}
+
+.blog-post-excerpt {
+  font-size: 0.95rem;
+}
+
+.read-more {
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+}
+
+/* ==========================================================================
+   CONTACT PAGE
+   ========================================================================== */
+.contact-methods {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.contact-card {
+  padding: 20px;
+  text-align: center;
+}
+
+.contact-card h3 {
+  font-family: var(--font-heading);
+  margin-bottom: 10px;
+}
+
+.contact-card-heading--email,
+.contact-card-heading--linkedin,
+.contact-card-heading--github {
+  /* Colors set by theme files */
+}
+
+.contact-card a {
+  word-break: break-all;
+}
+
+.contact-card-icon {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.contact-card-subtext {
+  font-size: 0.85rem;
+  margin-top: 8px;
+}
+
+.guestbook-header {
+  text-align: center;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.guestbook-header h1 {
+  font-size: 2rem;
+}
+
+.guestbook-subtitle {
+  font-family: var(--font-heading);
+  margin: 0;
+}
+
+.open-to-list {
+  list-style: none;
+  padding: 0;
+  font-size: 1rem;
+  line-height: 2;
+}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+.site-footer {
+  padding: 20px 0;
+  text-align: center;
+  font-size: 0.8rem;
+}
+
+.site-footer p {
+  margin-bottom: 5px;
+}
+
+.footer-retro {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  margin-top: 10px;
+}
+
+.hit-counter {
+  display: inline-block;
+  padding: 3px 10px;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  margin: 8px 0;
+}
+
+.footer-social {
+  margin: 10px 0;
+}
+
+.footer-social a {
+  margin: 0 10px;
+  font-size: 0.85rem;
+}
+
+/* Footer marquee (chaos only) */
+.footer-marquee {
+  margin-top: 8px;
+  padding: 3px 0;
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+}
+
+/* Web Ring (chaos only) */
+.web-ring {
+  margin-top: 10px;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+}
+
+.web-ring p {
+  margin: 0;
+}
+
+/* Awards section (chaos only, index page) */
+.awards-section {
+  text-align: center;
+}
+
+.awards-grid {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-top: 15px;
+}
+
+.award-badge {
+  padding: 15px 20px;
+  text-align: center;
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: bold;
+  min-width: 150px;
+}
+
+.award-badge small {
+  font-weight: normal;
+  font-size: 0.75rem;
+  display: block;
+  margin-top: 4px;
+}
+
+/* ==========================================================================
+   THEME TOGGLE BUTTON
+   ========================================================================== */
+.theme-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+  padding: 10px 16px;
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  transition: border-style 0.1s;
+}
+
+/* ==========================================================================
+   VISIBILITY TOGGLES
+   ========================================================================== */
+.chaos-only {
+  display: none;
+}
+
+html.chaos-mode .chaos-only {
+  display: block;
+}
+
+/* Inline chaos-only spans need inline display */
+span.chaos-only {
+  display: none;
+}
+
+html.chaos-mode span.chaos-only {
+  display: inline;
+}
+
+/* Inline clean-only spans */
+span.clean-only {
+  display: inline;
+}
+
+html.chaos-mode span.clean-only {
+  display: none;
+}
+
+.clean-only {
+  display: block;
+}
+
+html.chaos-mode .clean-only {
+  display: none;
+}
+
+/* ==========================================================================
+   UTILITY CLASSES
+   ========================================================================== */
+.text-center { text-align: center; }
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+/* ==========================================================================
+   CHAOS GIFs (hidden by default — shown in chaos mode)
+   ========================================================================== */
+.chaos-gif {
+  display: none;
+}
+
+.chaos-gif--header {
+  vertical-align: middle;
+}
+
+.chaos-gif--divider {
+  width: 100%;
+  height: auto;
+  margin: 10px 0;
+}
+
+.chaos-gif--inline {
+  vertical-align: middle;
+  margin: 0 6px;
+}
+
+.chaos-gif--float-right {
+  float: right;
+  margin: 0 0 10px 15px;
+}
+
+.chaos-gif--float-left {
+  float: left;
+  margin: 0 15px 10px 0;
+}
+
+.chaos-gif--center {
+  display: none;
+  margin: 10px auto;
+}
+
+/* Retro horizontal rule (structure only — colors in themes) */
+hr.retro-hr {
+  border: none;
+  height: 4px;
+  margin: 20px 0;
+}
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+@media (max-width: 768px) {
+  .site-title {
+    font-size: 2rem;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  h2 {
+    font-size: 1.3rem;
+  }
+
+  .nav-list {
+    gap: 4px;
+  }
+
+  .nav-list a {
+    padding: 6px 12px;
+    font-size: 0.85rem;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .panel {
+    padding: 15px 18px;
+  }
+
+  .welcome-section {
+    padding: 20px 15px;
+  }
+
+  .welcome-section h1 {
+    font-size: 1.8rem;
+  }
+
+  .contact-methods {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .site-title {
+    font-size: 1.5rem;
+  }
+
+  .nav-list {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav-list a {
+    width: 80%;
+    text-align: center;
+  }
+
+  .quick-links {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .retro-button {
+    width: 80%;
+  }
+
+  /* Toggle button: center on mobile */
+  .theme-toggle {
+    right: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 15px;
+  }
+}
+
+/* ==========================================================================
+   REDUCED MOTION (applies to both themes)
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
