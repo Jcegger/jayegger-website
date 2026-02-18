@@ -275,6 +275,13 @@ h3 {
   color: var(--color-text);
 }
 
+.project-link--soon {
+  background: #3D2A14;
+  color: var(--color-text-muted);
+  border-color: #5C3D1A;
+  cursor: default;
+}
+
 /* ==========================================================================
    BLOG PAGE
    ========================================================================== */

@@ -370,6 +370,13 @@ html.chaos-mode .project-link:visited {
   color: #FFFF00;
 }
 
+html.chaos-mode .project-link--soon {
+  background: #333333;
+  color: #999999;
+  border-color: #666666;
+  cursor: default;
+}
+
 /* ==========================================================================
    CHAOS: BLOG
    ========================================================================== */
